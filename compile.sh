@@ -1,3 +1,3 @@
-javac -d output input/*.java
+javac -d output input/*/*.java
 cd ./output
- java affichage.Main
+ java main.Main
