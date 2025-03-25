@@ -10,6 +10,15 @@ public class Point{
         
       }
     // }
+
+    //impl -->[operation]{
+    public static Point add(Point p1,Point p2){
+        return new Point(p1.x+p2.x, p1.y+p2.y);
+    }
+    public static Point substract(Point p1,Point p2){
+        return new Point(p1.x-p2.x, p1.y-p2.y);
+    }
+    //}
     public boolean appartient_sec_part(Point born_inf,Point born_sup){
         return this.x>=born_inf.x && this.x<=born_sup.x && this.y>=born_inf.y && this.y<=born_sup.y;
         
