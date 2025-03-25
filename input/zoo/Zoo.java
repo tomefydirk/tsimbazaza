@@ -7,7 +7,11 @@ public class Zoo {
     Anim[] la;
     public void deplacer_tous(){
       for(int i=0;la[i]!=null;i++){
+            la[i].deplacer();
             la[i].mangability(this.ls);
       }
+    }
+    public void delete_animal(int i){
+               
     }
 }

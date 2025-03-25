@@ -1,7 +1,5 @@
 package vivant;
 
-import geo.*;
-
 public class Herbi extends Anim{
     int capacite_grossiment; 
     public void manger(){

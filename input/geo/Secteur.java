@@ -4,9 +4,6 @@ public class Secteur {
     private String nom;
 
     //impl ---> #[constructor] {
-    public Secteur(){
-        this.form=new Point[4];
-    }
     public Secteur(String nom){
         this.form=new Point[4];
         this.nom=nom;
