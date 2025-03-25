@@ -34,4 +34,15 @@ public class Carni extends Anim{
         Anim a=this.plus_mangeable(list_proix);
         this.manger(a);
     }
+    //impl --->#[get_field]{
+    public double get_dist_fatal(){
+        return this.dist_fatal;
+    }
+    //}
+
+    //impl -->#[mut_field]{
+    public void set_dist_fatal(double dist_fatal){
+        this.dist_fatal=dist_fatal;
+    }
+    //}
 }

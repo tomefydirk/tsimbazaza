@@ -8,7 +8,9 @@ public class Zoo {
     public void deplacer_tous(){
       for(int i=0;la[i]!=null;i++){
             la[i].deplacer();
-            la[i].mangability(this.ls,this.la);
+      }
+      for(int j=0;la[j]!=null;j++){
+        la[j].mangability(this.ls,this.la);
       }
     }
     public static int find_indice_animal(Anim a,Anim[] la){

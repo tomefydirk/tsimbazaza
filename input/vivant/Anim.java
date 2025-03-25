@@ -77,6 +77,7 @@ public class Anim{
         }
         return min_dis;
     }
+    
     //impl ---> #[get_field]{
         public String get_nom(){
             return this.nom;
