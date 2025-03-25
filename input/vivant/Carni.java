@@ -2,6 +2,33 @@ package vivant;
 public class Carni extends Anim{
     double dist_fatal;
     public void manger(Anim proix){   
-        
+        if(Anim.distance(proix , this)<=dist_fatal){
+        if(this.poid<poid_max){
+            this.poid+=(proix.poid/10);   
+            if(this.poid>this.poid_max){
+                this.poid=this.poid_max;
+            }
+         }else{
+            return;
+         }
+        }
+    
+    }
+    public Anim plus_mangeable(Anim[] la){
+        if(la==null){
+            System.out.println("vous manipulez un tableau de liste d'animal vide !!!");
+            return null;
+        }
+        Anim min_dis=la[0];
+        for(int i=0;la[i]!=null;i++){
+                if(distance(this, la[i])<distance(this, min_dis)  && la[i].poid<this.poid){
+                    min_dis=la[i];
+                }
+        }
+        return min_dis;
+    }
+    public void manger_plus_proche(Anim[] list_proix){
+        Anim a=this.plus_mangeable(list_proix);
+        this.manger(a);
     }
 }
