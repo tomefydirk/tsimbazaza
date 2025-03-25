@@ -44,7 +44,24 @@ public class Zoo {
         int i=find_indice_animal(a,la);
         delete_animal_indice(i,la);
     }
-    
+    //impl --->#[get_field]{
+      public Secteur[] get_ls(){
+        return this.ls;
+      }
+      public Anim[] get_la(){
+        return this.la;
+      }
+    //} 
+
+    //impl -->#[mut_field]{
+    public void set_ls(Secteur[] ls){
+        this.ls=ls;
+    }
+    public void set_la(Anim[] la){
+      this.la=la;
+    }
+  
+    //}
 
   
   }

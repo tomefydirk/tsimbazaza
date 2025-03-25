@@ -77,5 +77,53 @@ public class Anim{
         }
         return min_dis;
     }
-   
+    //impl ---> #[get_field]{
+        public String get_nom(){
+            return this.nom;
+        }
+        public Date get_dns(){
+           return this.dns;
+        }
+        public Double get_poid(){
+            return this.poid;
+        }
+        public Double get_poid_max(){
+            return this.poid_max;
+        }
+        public Point get_position(){
+            return this.position;
+        }
+        public char get_sex(){
+            return this.sex;
+        }
+        public Point get_dp(){
+            return this.dp;
+        }
+
+    //}
+
+    //impl --->#[mut_field]{
+        public void  set_nom(String nom){
+                this.nom=nom;
+        }
+        public void  set_dns(Date dns){
+                this.dns= dns;
+        }
+        public void  set_poid(double poid){
+                this.poid=poid;
+        }
+        public void  set_poid_max(double poid_max){
+                this.poid_max=poid_max;
+        }
+        public void  set_position(Point position){
+                this.position=position;
+        }
+        public void  set_sex(char sex){
+                this.sex=sex;
+        }
+        public void  set_dp(Point dp){
+                this.dp=dp;
+        }
+
+    //}
 }
