@@ -1,5 +1,6 @@
 package vivant;
 import time.*;
+import zoo.Zoo;
 import geo.*;
 public class Anim{
     String nom;
@@ -19,17 +20,24 @@ public class Anim{
             return false;
         }
     }
-    public void mangability(Secteur[] ls){
+    public void mangability(Secteur[] ls,Anim[] la){
         for(int i=0;ls[i]!=null;i++){
             if(this.est_dans(ls[i])){
                 if(this instanceof Herbi){
                     Herbi h=(Herbi) this;
                     h.manger(); 
+                }else if(this instanceof Carni){
+                    Carni c=(Carni) this;
+                    Anim proix=c.plus_mangeable(la);
+                    c.manger(proix);
+                    Zoo.delete_animal(proix, la);
+                }else{
+                    continue;
                 }          
             }
         }
     }
-    public boolean equals(Anim autre){
+    public boolean equals_to(Anim autre){
         if(autre==this){
             return true;
         }else{
