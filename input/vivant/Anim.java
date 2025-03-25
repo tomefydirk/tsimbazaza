@@ -29,5 +29,8 @@ public class Anim{
             }
         }
     }
+    public static double distance(Anim a1,Anim a2){
+        return Point.distance(a1.position, a2.position);
+    }
    
 }

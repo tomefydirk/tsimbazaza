@@ -1,6 +1,6 @@
-package math;
+package my_math;
 
-public class Cacul {
+public class Calcul {
     public static double my_fabs(double nb){
         
             if(nb>=0){
@@ -21,5 +21,8 @@ public class Cacul {
             }              
         }
         return xn;
+    }
+    public static double carree(double nb){
+        return nb*nb;
     }
 }

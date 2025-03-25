@@ -1,4 +1,5 @@
 package geo;
+import my_math.*;
 public class Point{
     private double  x;
     private double y;
@@ -18,6 +19,9 @@ public class Point{
     public static Point substract(Point p1,Point p2){
         return new Point(p1.x-p2.x, p1.y-p2.y);
     }
+    public static double distance(Point p1,Point p2){
+        return Calcul.my_sqrt(Calcul.carree(p1.x-p2.x)+Calcul.carree(p1.y-p2.y));
+    }
     //}
     public boolean appartient_sec_part(Point born_inf,Point born_sup){
         return this.x>=born_inf.x && this.x<=born_sup.x && this.y>=born_inf.y && this.y<=born_sup.y;
@@ -27,16 +31,9 @@ public class Point{
         Point[] born=s.get_borne();
         return this.appartient_sec_part(born[0],born[1]);
     }
-    double fabs(double nb){
-        if(nb>=0){
-            return nb;
-        }else{
-            return -nb;
-        }
-    }
     //impl --->#[PartialEq] {
     public boolean equal(Point autre){
-       return fabs(autre.x-this.x)<0.00001 && fabs(autre.y-this.y)<0.00001;
+       return Calcul.my_fabs(autre.x-this.x)<0.00001 && Calcul.my_fabs(autre.y-this.y)<0.00001;
         
     }
     // }
