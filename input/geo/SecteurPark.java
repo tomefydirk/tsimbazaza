@@ -6,4 +6,7 @@ public class SecteurPark extends Secteur{
         super(nom);
     }
     // }
+    public int get_vertete(){
+        return this.vertete;
+    }
 }

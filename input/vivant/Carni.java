@@ -25,6 +25,9 @@ public class Carni extends Anim{
                     min_dis=la[i];
                 }
         }
+        if(min_dis.poid<this.poid){
+            return null;
+        }
         return min_dis;
     }
     public void manger_plus_proche(Anim[] list_proix){

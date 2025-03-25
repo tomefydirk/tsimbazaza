@@ -20,17 +20,34 @@ public class Anim{
             return false;
         }
     }
+    public void faire_manger_herbi(Secteur s){
+        Herbi h=(Herbi) this;
+        if(s instanceof SecteurPark){
+            SecteurPark sp=(SecteurPark) s;
+            if(sp.get_vertete()>0){
+                h.manger(); 
+            }else{
+                return;
+            }
+        }else{
+            return;
+        }
+    }
+    public void faire_manger_carni(Anim[] la){
+        Carni c=(Carni) this;
+        Anim proix=c.plus_mangeable(la);
+        if(proix!=null){
+            c.manger(proix);
+            Zoo.delete_animal(proix, la);
+        }
+    }
     public void mangability(Secteur[] ls,Anim[] la){
         for(int i=0;ls[i]!=null;i++){
             if(this.est_dans(ls[i])){
                 if(this instanceof Herbi){
-                    Herbi h=(Herbi) this;
-                    h.manger(); 
+                   faire_manger_herbi(ls[i]);
                 }else if(this instanceof Carni){
-                    Carni c=(Carni) this;
-                    Anim proix=c.plus_mangeable(la);
-                    c.manger(proix);
-                    Zoo.delete_animal(proix, la);
+                    faire_manger_carni(la);
                 }else{
                     continue;
                 }          
