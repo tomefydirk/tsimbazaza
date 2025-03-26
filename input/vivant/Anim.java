@@ -10,6 +10,15 @@ public class Anim{
     Point dp;
     double poid;
     double poid_max;
+
+    //impl --->#[constructor]{
+    public Anim(String nom,double poid,double poid_max,Point position){
+            this.nom=nom;
+            this.poid=poid;
+            this.poid_max=poid_max;
+            this.position=position;
+    }
+    //}
     public void deplacer(){
         this.position=Point.add(this.position,this.dp);
     }

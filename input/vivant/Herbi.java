@@ -1,7 +1,15 @@
 package vivant;
 
+import geo.Point;
+
 public class Herbi extends Anim{
     double capacite_grossiment; 
+    //impl --->#[constructor]{
+        public Herbi(String nom,double poid,double poid_max,Point position,double capacite_grossiment){
+            super(nom, poid, poid_max, position);
+            this.capacite_grossiment=capacite_grossiment;
+        }
+    //}
     public void manger(){
         if(this.poid<poid_max){
             this.poid+=capacite_grossiment;   

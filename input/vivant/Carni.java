@@ -1,6 +1,16 @@
 package vivant;
+
+import geo.Point;
+
 public class Carni extends Anim{
     double dist_fatal;
+
+    //impl --->#[constructor]{
+        public Carni(String nom,double poid,double poid_max,Point position,double dist_fatal){
+            super(nom, poid, poid_max, position);
+            this.dist_fatal=dist_fatal;
+        }
+    //}
     public void manger(Anim proix){   
         if(Anim.distance(proix , this)<=dist_fatal){
         if(this.poid<poid_max){
