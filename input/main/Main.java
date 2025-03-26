@@ -1,8 +1,7 @@
 package main;
 
 import vivant.*;
-import geo.Point;
-import my_math.*;
+import geo.*;
 public class Main {
     public static void main(String[] args) {
        Carni c1=new Carni("Balou", 1, 1000, new Point(0, 1), 20);
@@ -10,6 +9,8 @@ public class Main {
        Carni c2=new Carni("Hasman", 1000, 1000, new Point(10, 1), 1000);
        c2.set_dp(new Point(0, 0));
 
+
+       SecteurPark s1=new SecteurPark("S1",100);
        Anim[] la=new Anim[4];
        c1.insert_into(la);
        c2.insert_into(la);
