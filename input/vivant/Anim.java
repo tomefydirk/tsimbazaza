@@ -1,6 +1,5 @@
 package vivant;
 import time.*;
-import zoo.Zoo;
 import geo.*;
 public class Anim{
     String nom;
@@ -10,15 +9,17 @@ public class Anim{
     Point dp;
     double poid;
     double poid_max;
-
+    boolean est_mort;
     //impl --->#[constructor]{
     public Anim(String nom,double poid,double poid_max,Point position){
             this.nom=nom;
             this.poid=poid;
             this.poid_max=poid_max;
             this.position=position;
+            this.est_mort=false;
     }
     //}
+
     public void deplacer(){
         this.position=Point.add(this.position,this.dp);
     }
@@ -45,24 +46,20 @@ public class Anim{
     public void faire_manger_carni(Anim[] la){
         Carni c=(Carni) this;
         Anim proix=c.plus_mangeable(la);
-        System.out.println("e");
         if(proix!=null){
             c.manger(proix);
-            c.afficher_debug();
-         //   Zoo.delete_animal(proix, la);
+            proix.est_mort=true;
         }else{
-            System.out.println("erorrrr");
+            return;
         }
     }
     public void mangability(Secteur[] ls,Anim[] la){
         for(int i=0;ls[i]!=null;i++){
-            System.out.println(i);
-            if(this.est_dans(ls[i])){
+            if(this.est_dans(ls[i]) && !this.est_mort){
                 if(this instanceof Herbi){
                    faire_manger_herbi(ls[i]);
                 }else if(this instanceof Carni){
                     faire_manger_carni(la);
-                    System.out.println("mangability fonctionel");
                 }else{
                     continue;
                 }          
@@ -115,6 +112,9 @@ public class Anim{
         public Point get_dp(){
             return this.dp;
         }
+        public boolean get_est_mort(){
+            return this.est_mort;
+        }
 
     //}
 
@@ -140,6 +140,9 @@ public class Anim{
         public void  set_dp(Point dp){
                 this.dp=dp;
         }
+        public void set_est_mort(boolean est_mort){
+                this.est_mort=est_mort;
+        }
 
     //}
     //impl --->#[inserable]
@@ -164,6 +167,7 @@ public class Anim{
             System.out.println("[ Nom :"+this.nom);
             System.out.print("   ");
             this.position.afficher();
+            System.out.println("   Poid:"+this.poid);
             System.out.println("]");
         }
     //}

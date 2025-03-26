@@ -14,8 +14,13 @@ public class Zoo {
     public void deplacer_tous(){
       for(int i=0;la[i]!=null;i++){
             la[i].deplacer();
-           // System.out.println(la[i].get_nom());
             la[i].mangability(this.ls,this.la);
+      }
+      for(int i=0;la[i]!=null;i++){
+          if(la[i].get_est_mort()){
+            Zoo.delete_animal_indice(i, la);
+          }
+
       }
     }
     public static int find_indice_animal(Anim a,Anim[] la){
@@ -39,15 +44,12 @@ public class Zoo {
             }else if(la[indice+1]==null){
               la[indice]=null;
               return;
-            }else if(indice==0){
-              for(int i=1;la[i]!=null;i++){
-                la[i-1]=la[i];  
-          }
-          return;
             }else{
-              for(int i=indice;la[i]!=null;i++){
+              int i=0;
+              for(i=indice+1;la[i]!=null;i++){
                     la[i-1]=la[i];  
               }
+              la[i-1]=null;
                return;
             }   
     
