@@ -1,4 +1,5 @@
 package geo;
+
 public class SecteurPark extends Secteur{   
     int vertete;
     //impl --->#[constructor] { 
@@ -13,9 +14,24 @@ public class SecteurPark extends Secteur{
     }
     // }
 
-    //impl ---#[mut_field]{
+    //impl --->#[mut_field]{
     public void set_vertete(int vertete){
         this.vertete=vertete;
     }
     // }
+
+    //impl --->#[inserable]{
+      public void insert_into(SecteurPark[] lsp){
+        int i=0;
+        while (true) {
+                if(lsp[i]==null){
+                    break;
+                }
+                i+=1;
+        }
+        lsp[i]=this;
+    }
+    
+    // }
+    
 }

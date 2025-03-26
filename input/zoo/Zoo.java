@@ -64,6 +64,19 @@ public class Zoo {
     }
   
     //}
-
+    
+     //impl --->#[inserable]{
+      public void insert_into(Zoo[] lz){
+        int i=0;
+        while (true) {
+                if(lz[i]==null){
+                    break;
+                }
+                i+=1;
+        }
+        lz[i]=this;
+    }
+    
+    // }
   
   }

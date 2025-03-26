@@ -127,4 +127,17 @@ public class Anim{
         }
 
     //}
+    //impl --->#[inserable]
+        public void insert_into(Anim[] la){
+            int i=0;
+            while (true) {
+                    if(la[i]==null){
+                        break;
+                    }
+                    i+=1;
+            }
+            la[i]=this;
+        }
+
+    //}
 }

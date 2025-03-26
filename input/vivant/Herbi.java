@@ -24,4 +24,18 @@ public class Herbi extends Anim{
             this.capacite_grossiment=capacite_grossiment;
         }
     //}
+
+    //impl --->#[inserable]{
+    public void insert_into(Herbi[] lh){
+        int i=0;
+        while (true) {
+                if(lh[i]==null){
+                    break;
+                }
+                i+=1;
+        }
+        lh[i]=this;
+    }
+    
+    // }
 }

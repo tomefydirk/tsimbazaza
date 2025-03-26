@@ -12,7 +12,7 @@ public class Calcul {
     }
     public static double my_sqrt(double nb){
         double xn=nb/2;
-        double epsilon=0.000001;
+        double epsilon=0.00000001;
         while (true) {
             xn=(xn+(nb/xn))/2.0;
             double c=(xn*xn)-nb;

@@ -45,4 +45,18 @@ public class Carni extends Anim{
         this.dist_fatal=dist_fatal;
     }
     //}
+
+    //impl --->#[inserable]{
+        public void insert_into(Carni[] lc){
+            int i=0;
+            while (true) {
+                    if(lc[i]==null){
+                        break;
+                    }
+                    i+=1;
+            }
+            lc[i]=this;
+        }
+        
+        // }
 }
