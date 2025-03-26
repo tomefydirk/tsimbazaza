@@ -5,10 +5,17 @@ import vivant.*;
 public class Zoo {
     Secteur[] ls;
     Anim[] la;
+    //impl --->#[constructor]{
+    public Zoo(Secteur[] ls,Anim[] la){
+      this.ls=ls;
+      this.la=la;
+    }
+    //}
     public void deplacer_tous(){
       for(int i=0;la[i]!=null;i++){
             la[i].deplacer();
-            la[i].mangability(ls, la);
+           // System.out.println(la[i].get_nom());
+            la[i].mangability(this.ls,this.la);
       }
     }
     public static int find_indice_animal(Anim a,Anim[] la){
@@ -32,8 +39,13 @@ public class Zoo {
             }else if(la[indice+1]==null){
               la[indice]=null;
               return;
+            }else if(indice==0){
+              for(int i=1;la[i]!=null;i++){
+                la[i-1]=la[i];  
+          }
+          return;
             }else{
-              for(int i=indice+1;la[i]!=null;i++){
+              for(int i=indice;la[i]!=null;i++){
                     la[i-1]=la[i];  
               }
                return;

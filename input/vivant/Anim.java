@@ -45,18 +45,24 @@ public class Anim{
     public void faire_manger_carni(Anim[] la){
         Carni c=(Carni) this;
         Anim proix=c.plus_mangeable(la);
+        System.out.println("e");
         if(proix!=null){
             c.manger(proix);
-            Zoo.delete_animal(proix, la);
+            c.afficher_debug();
+         //   Zoo.delete_animal(proix, la);
+        }else{
+            System.out.println("erorrrr");
         }
     }
     public void mangability(Secteur[] ls,Anim[] la){
         for(int i=0;ls[i]!=null;i++){
+            System.out.println(i);
             if(this.est_dans(ls[i])){
                 if(this instanceof Herbi){
                    faire_manger_herbi(ls[i]);
                 }else if(this instanceof Carni){
                     faire_manger_carni(la);
+                    System.out.println("mangability fonctionel");
                 }else{
                     continue;
                 }          
@@ -155,7 +161,10 @@ public class Anim{
             System.out.println("Nom :"+this.nom);
         }
         public void afficher_debug(){
-            System.out.println("Nom :"+this.nom+" && position"+this.position);
+            System.out.println("[ Nom :"+this.nom);
+            System.out.print("   ");
+            this.position.afficher();
+            System.out.println("]");
         }
     //}
 }

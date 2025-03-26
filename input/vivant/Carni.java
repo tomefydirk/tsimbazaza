@@ -31,13 +31,22 @@ public class Carni extends Anim{
         }
         Anim min_dis=la[0];
         for(int i=0;la[i]!=null;i++){
-                if(distance(this, la[i])<distance(this, min_dis)  && la[i].poid<this.poid){
+            System.out.println("i: "+i+" test plus mangeable dans avec "+la[i].get_nom());
+            double a=distance(this , la[i]);
+            System.out.println("a = "+ a);
+            double b=distance(this, min_dis);
+            System.out.println("b = "+ b);
+                if(a<b  && la[i].poid<this.poid){
                     min_dis=la[i];
+                }else{
+                    continue;
                 }
         }
-        if(min_dis.poid<this.poid){
+     
+        if(min_dis.poid >= this.poid){
             return null;
         }
+        System.out.println("plus mangeable found");
         return min_dis;
     }
     public void manger_plus_proche(Anim[] list_proix){
