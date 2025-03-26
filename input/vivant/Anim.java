@@ -140,4 +140,13 @@ public class Anim{
         }
 
     //}
+
+    //impl --->#[debug]{
+        public void afficher(){
+            System.out.println("Nom :"+this.nom);
+        }
+        public void afficher_debug(){
+            System.out.println("Nom :"+this.nom+" && position"+this.position);
+        }
+    //}
 }

@@ -33,5 +33,13 @@ public class SecteurPark extends Secteur{
     }
     
     // }
+
+    //impl --->#[debug]{
+        public void afficher_debug(){
+            System.out.println("Nom : "+this.get_nom());
+            System.out.println("Vertete : "+this.vertete);
+        }
+
+    //}
     
 }

@@ -78,5 +78,22 @@ public class Zoo {
     }
     
     // }
-  
+    //impl --->#[Debug]{
+      public void afficher_la(){
+        for(int i=0;this.la[i]!=null;i++){
+           this.la[i].afficher_debug();
+        }
+      }
+      public void afficher_ls(){
+        for(int i=0;this.ls[i]!=null;i++){
+          if(ls[i] instanceof SecteurPark){
+            SecteurPark lsp=(SecteurPark) ls[i];
+            lsp.afficher_debug();
+          }else{
+            System.out.println(ls[i].get_nom() +" n'est pas un secteur park");
+          }
+        
+       }
+      }
+    //}
   }
