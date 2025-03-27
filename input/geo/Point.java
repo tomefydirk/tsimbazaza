@@ -1,7 +1,8 @@
 package geo;
 import my_math.*;
-public class Point{
-    private double  x;
+import java.awt.geom.Point2D;
+public class Point extends Point2D.Double{
+    double  x;
     private double y;
 
     //impl ---> #[constructor] {
@@ -48,19 +49,19 @@ public class Point{
     // }
 
     //impl -->#[get_field] {
-    public double get_x(){
+    public double getX(){
         return this.x;
     }
-    public double get_y(){
+    public double getY(){
         return this.y;
     }
     // }
 
     //impl -->#[mut_field] {
-    public void set_x(Double x){
+    public void set_x(double x){
         this.x=x;
     }
-    public void set_y(Double y){
+    public void set_y(double y){
         this.y=y;
     }
     // }
@@ -81,4 +82,25 @@ public class Point{
             ld[index]=this;
         }
     // }  
+
+    public static Point min_p(Point[] form){
+        Point minimum=new Point(0,0);
+        minimum=form[0];
+        for(int i=0;i<4;i++){
+            if(minimum.getX()>=form[i].getX() && minimum.getY()>=form[i].getY()){
+                minimum=form[i];
+            }
+        }
+        return minimum;
+    }
+    public static Point max_p(Point[] form){
+        Point maximum=new Point(0,0);
+        maximum=form[0];
+        for(int i=0;i<4;i++){
+            if(maximum.getX()<=form[i].getX() && maximum.getY()<=form[i].getY()){
+                maximum=form[i];
+            }
+        }
+        return maximum;
+    }
 } 

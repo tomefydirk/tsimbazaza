@@ -3,6 +3,7 @@ package main;
 import vivant.*;
 import zoo.*;
 
+import java.awt.geom.Rectangle2D;
 import java.util.Vector;
 
 import geo.*;
@@ -61,5 +62,11 @@ public class Main {
        // c2.afficher_debug();
 
       //  c1.plus_mangeable(la).afficher_debug();
+      /*---------------------------------------------------------- */
+      Rectangle2D.Double r=new Rectangle2D.Double(1, 1, 1, 1);
+      boolean isInside =r.contains(0.5, 0.5);
+      if(isInside){
+        System.out.println("oui!!");
+      } 
     }    
 }
