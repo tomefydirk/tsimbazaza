@@ -1,5 +1,8 @@
 package vivant;
 import time.*;
+
+import java.util.Vector;
+
 import geo.*;
 public class Anim{
     String nom;
@@ -43,7 +46,7 @@ public class Anim{
             return;
         }
     }
-    public void faire_manger_carni(Anim[] la){
+    public void faire_manger_carni(Vector<Anim> la){
         Carni c=(Carni) this;
         Anim proix=c.plus_mangeable(la);
         if(proix!=null){
@@ -53,7 +56,7 @@ public class Anim{
             return;
         }
     }
-    public void mangability(Secteur[] ls,Anim[] la){
+    public void mangability(Secteur[] ls,Vector<Anim> la){
         for(int i=0;ls[i]!=null;i++){
             if(this.est_dans(ls[i]) && !this.est_mort){
                 if(this instanceof Herbi){
@@ -76,15 +79,15 @@ public class Anim{
     public static double distance(Anim a1,Anim a2){
         return Point.distance(a1.position, a2.position);
     }
-    public Anim plus_proche(Anim[] la){
+    public Anim plus_proche(Vector<Anim> la){
         if(la==null){
             System.out.println("vous manipulez un tableau de liste d'animal vide !!!");
             return null;
         }
-        Anim min_dis=la[0];
-        for(int i=0;la[i]!=null;i++){
-                if(distance(this, la[i])<distance(this, min_dis)){
-                    min_dis=la[i];
+        Anim min_dis=(Anim)la.elementAt(0);
+        for(int i=0;(Anim)la.elementAt(i)!=null;i++){
+                if(distance(this, (Anim)la.elementAt(i))<distance(this, min_dis)){
+                    min_dis=(Anim)la.elementAt(i);
                 }
         }
         return min_dis;

@@ -2,6 +2,9 @@ package main;
 
 import vivant.*;
 import zoo.*;
+
+import java.util.Vector;
+
 import geo.*;
 public class Main {
     public static void main(String[] args) {
@@ -18,26 +21,31 @@ public class Main {
 
        SecteurPark s1=new SecteurPark("S1",100);
        s1.init_form(new Point(-100, -100), new Point(100, 100), new Point(100, -100), new Point(-100,100));
-       Anim[] la=new Anim[100];
+     /*  Anim[] la=new Anim[100];
        c1.insert_into(la);
        c2.insert_into(la);
        c3.insert_into(la);
       h1.insert_into(la);
-      h2.insert_into(la);
+      h2.insert_into(la); */
+
+      Vector<Anim> la=new Vector<Anim>();
+      la.add(c1);
+      la.add(c2);
+      la.add(c3);
+      la.add(h1);
+      la.add(h2);
        Secteur[] ls=new Secteur[3];
        s1.insert_into(ls);
        Zoo tsimbina=new Zoo(ls,la);
        System.out.println(Point.distance(c2.get_position(), c2.get_position()));
-       int a=Zoo.find_indice_animal(c2, tsimbina.get_la());
-      System.out.println(a);
        tsimbina.deplacer_tous();
-       System.out.println(c2.get_est_mort());
+   //    System.out.println(c2.get_est_mort());
       // Zoo.delete_animal(c1, la);
-        //c1.premier_mangeable(la).afficher();
+    //   c2.premier_mangeable(la).afficher();
 
         // Zoo.delete_animal(c1, la);
         // Zoo.delete_animal(c2, la);
-       tsimbina.afficher_la();
+      // tsimbina.afficher_la();
        // c2.afficher_debug();
      //   double c=10 +(8.0/10);
      // System.out.println(c);

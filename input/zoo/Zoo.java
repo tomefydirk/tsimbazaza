@@ -2,67 +2,33 @@ package zoo;
 
 import geo.*;
 import vivant.*;
+import java.util.Vector;
 public class Zoo {
     Secteur[] ls;
-    Anim[] la;
+    Vector<Anim> la;
     //impl --->#[constructor]{
-    public Zoo(Secteur[] ls,Anim[] la){
+    public Zoo(Secteur[] ls,Vector<Anim> la){
       this.ls=ls;
       this.la=la;
     }
     //}
     public void deplacer_tous(){
-      for(int i=0;la[i]!=null;i++){
-            la[i].deplacer();
-            la[i].mangability(this.ls,this.la);
+      for(int i=0;i<la.size();i++){
+          ((Anim)  la.elementAt(i)).deplacer();
+          ((Anim)  la.elementAt(i)).mangability(this.ls,this.la);
       }
-      for(int i=0;la[i]!=null;i++){
-          if(la[i].get_est_mort()){
-            Zoo.delete_animal_indice(i, la);
+      for(int i=0;i<la.size();i++){
+          if(((Anim)la.elementAt(i)).get_est_mort()){
+              this.la.remove(i);
           }
 
       }
-    }
-    public static int find_indice_animal(Anim a,Anim[] la){
-      for(int i=0;la[i]!=null;i++){
-          if(a.equals_to(la[i])){
-              return i;
-          }
-      }
-      return -1;
-    }
-    public static void delete_animal_indice(int indice,Anim[] la){
-            if(indice==-1){
-              System.out.println("L'animal l'existe pas dans la liste");
-              return;
-            }else if(indice>=la.length){
-               System.out.println("Erreur l'indice i dans delete animal dépasse la taille de la");
-                return;
-            }else if(la[indice]==null){
-              System.out.println("Erreur l'indice i dans delete animal est null");
-              return;
-            }else if(la[indice+1]==null){
-              la[indice]=null;
-              return;
-            }else{
-              int i=0;
-              for(i=indice+1;la[i]!=null;i++){
-                    la[i-1]=la[i];  
-              }
-              la[i-1]=null;
-               return;
-            }   
-    
-    }
-    public static void delete_animal(Anim a,Anim[] la){
-        int i=find_indice_animal(a,la);
-        delete_animal_indice(i,la);
     }
     //impl --->#[get_field]{
       public Secteur[] get_ls(){
         return this.ls;
       }
-      public Anim[] get_la(){
+      public Vector<Anim> get_la(){
         return this.la;
       }
     //} 
@@ -71,7 +37,7 @@ public class Zoo {
     public void set_ls(Secteur[] ls){
         this.ls=ls;
     }
-    public void set_la(Anim[] la){
+    public void set_la(Vector<Anim> la){
       this.la=la;
     }
   
@@ -92,8 +58,8 @@ public class Zoo {
     // }
     //impl --->#[Debug]{
       public void afficher_la(){
-        for(int i=0;this.la[i]!=null;i++){
-           this.la[i].afficher_debug();
+        for(int i=0;i<this.la.size();i++){
+          ((Anim)this.la.get(i)).afficher_debug();
         }
       }
       public void afficher_ls(){

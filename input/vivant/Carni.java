@@ -1,5 +1,7 @@
 package vivant;
 
+import java.util.Vector;
+
 import geo.Point;
 
 public class Carni extends Anim{
@@ -31,15 +33,15 @@ public class Carni extends Anim{
             return false;
         }
     }
-    public Anim premier_mangeable(Anim[] la){
-        for(int i=0;la[i]!=null;i++){
-            if(this.mangeable(la[i]) && !this.equals_to(la[i])){
-                    return la[i];
+    public Anim premier_mangeable(Vector<Anim> la){
+        for(int i=0;i<la.size();i++){
+            if(this.mangeable((Anim)la.elementAt(i)) && !this.equals_to((Anim)la.elementAt(i))){
+                    return (Anim)la.elementAt(i);
             }
         }
         return null;
     }
-    public Anim plus_mangeable(Anim[] la){
+    public Anim plus_mangeable(Vector<Anim> la){
         if(la==null){
             System.out.println("vous manipulez un tableau de liste d'animal vide !!!");
             return null;
@@ -48,13 +50,13 @@ public class Carni extends Anim{
         if(min_dis==null){
             return null;
         }else{
-            for(int i=0;la[i]!=null;i++){
-                  double a=distance(this , la[i]);
+            for(int i=0;i<la.size();i++){
+                  double a=distance(this ,(Anim) la.elementAt(i));
                  
                   double b=distance(this, min_dis);
                   
-                      if(a<b  && la[i].poid<this.poid && !this.equals_to(la[i]) && !la[i].est_mort){
-                          min_dis=la[i];
+                      if(a<b  && ((Anim)la.elementAt(i)).poid<this.poid && !this.equals_to((Anim)la.elementAt(i)) && !((Anim)la.elementAt(i)).est_mort){
+                          min_dis=(Anim)la.elementAt(i);
                       }else{
                           continue;
                       }
@@ -63,7 +65,7 @@ public class Carni extends Anim{
        
         return min_dis;
     }
-    public void manger_plus_proche(Anim[] list_proix){
+    public void manger_plus_proche(Vector<Anim> list_proix){
         Anim a=this.plus_mangeable(list_proix);
         this.manger(a);
     }
