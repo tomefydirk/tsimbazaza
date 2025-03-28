@@ -14,8 +14,8 @@ public class Zoo {
     //}
     public void deplacer_tous(){
       for(int i=0;i<la.size();i++){
-          ((Anim)  la.elementAt(i)).deplacer();
-          ((Anim)  la.elementAt(i)).mangability(this.ls,this.la);
+            la.elementAt(i).deplacer();
+          la.elementAt(i).mangability(this.ls,this.la);
       }
       for(int i=0;i<la.size();i++){
           if(((Anim)la.elementAt(i)).get_est_mort()){

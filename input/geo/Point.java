@@ -29,8 +29,7 @@ public class Point extends Point2D.Double{
         
     }
     public boolean appartient_sec(Secteur s){
-        Point[] born=s.get_borne();
-        return this.appartient_sec_part(born[0],born[1]);
+        return s.contains(x, y);
     }
     //impl --->#[PartialEq] {
     public boolean equal(Point autre){

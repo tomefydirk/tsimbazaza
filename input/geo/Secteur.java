@@ -1,14 +1,16 @@
 package geo;
-import java.awt.geom.Rectangle2D.Double;
 import java.awt.geom.*;
 public class Secteur extends Rectangle2D.Double{
-    private Rectangle2D.Double form;
     private String nom;
 
     //impl ---> #[constructor] {
     public Secteur(String nom) {
         this.nom=nom;
     } 
+    public Secteur(String nom,double x,double y,double width,double height){
+        this.nom=nom;
+        this.setRect(x, y, width, height);
+    }
     // }
    
     public void init_form(Point p1,Point p2,Point p3,Point p4){
@@ -25,21 +27,9 @@ public class Secteur extends Rectangle2D.Double{
             double height=max.getY()-min.getY();
             this.setRect(min.getX(), min.getY(),width, height);
     }
-    public Point[] generer_borne(){
-            Point[] lp=new Point[4];
-            
-    }
-    /*
-    public Point[] get_borne(){
-      Point[] retour=new Point[2];
-      retour[0]=this.min_p();
-      retour[1]=this.max_p();
-      return retour;
-    } */
-
     //impl -->#[PartialEq] {
     public boolean equal(Secteur autre){
-        return autre.min_p().equal(this.min_p()) && autre.max_p().equal(this.max_p());
+       return this==autre;
         
     }
     // }
@@ -58,17 +48,11 @@ public class Secteur extends Rectangle2D.Double{
     public String get_nom(){
         return this.nom;
     }
-    public Point[] get_form(){
-        return this.form;
-    }
     // }
 
      //impl ---> #[mut_field] {
     public void set_nom(String nom){
         this.nom=nom;
-    }
-    public void set_form(Point[] form){
-        this.form=form;
     }
     // }
     //impl --> #[inserable] {
