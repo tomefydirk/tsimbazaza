@@ -5,10 +5,10 @@ import zoo.*;
 
 import java.awt.geom.Rectangle2D;
 import java.util.Vector;
-
+import aff.MaFenetre;
 import geo.*;
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
      Carni c1=new Carni("Balou", 1, 1000, new Point(0, 1), 0);
        c1.set_dp(new Point(0, 0)); 
        Carni c2=new Carni("Hasman", 8.0, 1000, new Point(10, 1), 40);
@@ -80,5 +80,6 @@ public class Main {
       if(isInside){
         System.out.println("oui!!");
       } 
+      MaFenetre a=new MaFenetre();
     }    
 }
