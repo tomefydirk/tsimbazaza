@@ -7,6 +7,7 @@ import java.util.Vector;
 import aff.MaFenetre;
 import geo.*;
 public class Data {
+      Zoo mon_zoo;
       public   Data(){
             Carni c1=new Carni("Balou", 1, 1000, new Point(0, 1), 0);
             c1.set_dp(new Point(0, 0)); 
@@ -68,6 +69,7 @@ public class Data {
              */
             
             // c2.afficher_debug();
+            this.mon_zoo=tsimbina;
            if(c1.get_position().appartient_sec(s1)){
                System.out.println("vrai");
            }
@@ -81,4 +83,15 @@ public class Data {
            } 
       
         }   
+        //impl --->#[get_field]{
+        public Zoo get_zoo(){
+          return this.mon_zoo;
+        }
+        //}
+
+        //impl --->#[mut_field]{
+        public void set_zoo(Zoo a){
+          this.mon_zoo=a;
+        }
+        //}
 }

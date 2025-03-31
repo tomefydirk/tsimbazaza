@@ -3,6 +3,7 @@ package zoo;
 import geo.*;
 import vivant.*;
 import java.util.Vector;
+import aff.Dessin;
 public class Zoo {
     Secteur[] ls;
     Vector<Anim> la;
