@@ -3,6 +3,9 @@ import time.*;
 
 import java.util.Vector;
 
+import aff.Dessin;
+
+import java.awt.Graphics2D;
 import geo.*;
 public class Anim{
     String nom;
@@ -13,6 +16,7 @@ public class Anim{
     double poid;
     double poid_max;
     boolean est_mort;
+
     //impl --->#[constructor]{
     public Anim(String nom,double poid,double poid_max,Point position){
             this.nom=nom;
@@ -23,8 +27,21 @@ public class Anim{
     }
     //}
 
-    public void deplacer(){
-        this.position=Point.add(this.position,this.dp);
+    public void deplacer(Dessin d,Graphics2D g){
+        for(int j=0;j<this.dp.getY();j++){
+            for(int i=0;i<this.dp.getX();i++){
+                if(this.dp.getX()!=0){
+                    this.position= Point.add(this.position,new Point(1,0));
+                }  
+            }
+            if(this.dp.getY()!=0){
+                this.position= Point.add(this.position,new Point(0,1));
+            }
+           d.afficher_anim(g,this);
+        }
+      
+        
+    
     }
     public boolean est_dans(Secteur a){
         if(this.position.appartient_sec(a)){

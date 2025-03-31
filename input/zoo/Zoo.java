@@ -4,6 +4,7 @@ import geo.*;
 import vivant.*;
 import java.util.Vector;
 import aff.Dessin;
+import java.awt.*;
 public class Zoo {
     Secteur[] ls;
     Vector<Anim> la;
@@ -13,17 +14,20 @@ public class Zoo {
       this.la=la;
     }
     //}
-    public void deplacer_tous(){
+    public void deplacer_tous(Dessin d,Graphics2D g){
       for(int i=0;i<la.size();i++){
-            la.elementAt(i).deplacer();
+            la.elementAt(i).deplacer(d,g);
           la.elementAt(i).mangability(this.ls,this.la);
+          
       }
       for(int i=0;i<la.size();i++){
           if(((Anim)la.elementAt(i)).get_est_mort()){
+            d.afficher_anim(g, la.elementAt(i));
               this.la.remove(i);
           }
 
       }
+     
     }
     //impl --->#[get_field]{
       public Secteur[] get_ls(){
