@@ -4,11 +4,10 @@ import zoo.*;
 
 import java.awt.geom.Rectangle2D;
 import java.util.Vector;
-import aff.MaFenetre;
 import geo.*;
 public class Data {
       Zoo mon_zoo;
-      public   Data(){
+      public  static Zoo Data(){
             Carni c1=new Carni("Balou", 1000, 1000, new Point(1, 1), 0);
             c1.set_dp(new Point(10, 0)); 
             Carni c2=new Carni("Hasman", 8.0, 1, new Point(10, 1), 40);
@@ -42,7 +41,7 @@ public class Data {
             Secteur[] ls=new Secteur[3];
             s1.insert_into(ls);
             s2.insert_into(ls);
-            Zoo tsimbina=new Zoo(ls,la);
+            Zoo tsimbina=new Zoo(ls,la,9,8,23,32);
          //  // System.out.println(Point.distance(c2.get_position(), c2.get_position()));
            // tsimbina.deplacer_tous();
            // tsimbina.deplacer_tous();
@@ -69,7 +68,6 @@ public class Data {
              */
             
             // c2.afficher_debug();
-            this.mon_zoo=tsimbina;
            if(c1.get_position().appartient_sec(s1)){
                System.out.println("vrai");
            }
@@ -81,6 +79,7 @@ public class Data {
            if(isInside){
              System.out.println("oui!!");
            } 
+           return tsimbina;
       
         }   
         //impl --->#[get_field]{

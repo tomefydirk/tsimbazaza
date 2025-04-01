@@ -5,24 +5,25 @@ import vivant.*;
 import java.util.Vector;
 import aff.Dessin;
 import java.awt.*;
-public class Zoo {
+public class Zoo extends Rectangle{
     Secteur[] ls;
     Vector<Anim> la;
     //impl --->#[constructor]{
-    public Zoo(Secteur[] ls,Vector<Anim> la){
+    public Zoo(Secteur[] ls,Vector<Anim> la,int x,int y,int width ,int height){
+      super(x,y,width,height);
       this.ls=ls;
       this.la=la;
+      
     }
     //}
-    public void deplacer_tous(Dessin d,Graphics2D g){
+    public void deplacer_tous(){
       for(int i=0;i<la.size();i++){
-            la.elementAt(i).deplacer(d,g);
+            la.elementAt(i).deplacer();
           la.elementAt(i).mangability(this.ls,this.la);
           
       }
       for(int i=0;i<la.size();i++){
           if(((Anim)la.elementAt(i)).get_est_mort()){
-            d.afficher_anim(g, la.elementAt(i));
               this.la.remove(i);
           }
 

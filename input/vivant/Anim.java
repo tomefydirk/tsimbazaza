@@ -27,18 +27,9 @@ public class Anim{
     }
     //}
 
-    public void deplacer(Dessin d,Graphics2D g){
-        for(int j=0;j<this.dp.getY();j++){
-            for(int i=0;i<this.dp.getX();i++){
-                if(this.dp.getX()!=0){
-                    this.position= Point.add(this.position,new Point(1,0));
-                }  
-            }
-            if(this.dp.getY()!=0){
-                this.position= Point.add(this.position,new Point(0,1));
-            }
-           d.afficher_anim(g,this);
-        }
+    public void deplacer(){
+            this.position=Point.add(this.position, this.dp);
+        
       
         
     
