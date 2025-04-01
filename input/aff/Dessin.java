@@ -1,9 +1,7 @@
 package aff;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.CropImageFilter;
 import zoo.Zoo;
-import data.*;
 import geo.*;
 import vivant.*;
 public class Dessin extends JPanel
@@ -21,10 +19,12 @@ public class Dessin extends JPanel
 			Secteur a=zoo.get_ls()[i];
 			g.setColor(Color.pink);
 			g.drawRect((int)(a.x * 10) ,(int) (a.y *10),(int)(a.width *10), (int)(a.height *10));
+			g.setColor(Color.black);
+			g.drawString(a.get_nom(), (int)(a.x * 10) + (int)a.width *5, (int)(a.y * 10) + (int)a.height *5);
 		}
 	}
 	public void afficher_anim(Graphics g){
-		g.setColor(Color.gray);
+		g.setColor(Color.white);
 		g.fillRect(zoo.x * 10, zoo.y * 10, zoo.width*10, zoo.height*10);
 		afficher_sec(g);
 		for(Anim a : zoo.get_la()){
@@ -39,6 +39,8 @@ public class Dessin extends JPanel
 				int y=(int) a.get_position().getY() *10;
 
 				g.fillOval(x, y, 10, 10);
+				g.setColor(new Color(0,0,0));
+				g.drawString(a.get_nom(), x, y);
 		}
 	}
 	public void paint(Graphics gP)
@@ -48,7 +50,6 @@ public class Dessin extends JPanel
 		super.paint(g);
 		
 		afficher_anim(g);
-		repaint();
 	}
     
 }
