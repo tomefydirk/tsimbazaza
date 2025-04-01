@@ -1,5 +1,6 @@
 package vivant;
 import time.*;
+import zoo.Zoo;
 
 import java.util.Vector;
 
@@ -150,6 +151,18 @@ public class Anim{
         }
         public void  set_dp(Point dp){
                 this.dp=dp;
+        }
+        public void set_dpX(int x){
+            this.dp.set_x(x);
+        }
+        public void set_dpY(int y){
+            this.dp.set_x(y);
+        }
+        public void oppose_dpX(){
+            this.dp.set_x(-this.dp.getX());
+        }
+        public void oppose_dpY(){
+            this.dp.set_y(-this.dp.getY());
         }
         public void set_est_mort(boolean est_mort){
                 this.est_mort=est_mort;

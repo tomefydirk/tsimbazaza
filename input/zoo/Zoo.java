@@ -20,18 +20,27 @@ public class Zoo extends Rectangle{
     public int mandalo_bordure(Anim a){
       int m_x=(int)a.get_position().getX();
       int m_y=(int)a.get_position().getY();
-      if(m_x==this.getX()){
+      if(m_x==this.getX() || m_x==this.getX()+this.width){
         return 1;
-      }else if(m_y==this.getY()){
+      }else if(m_y==this.getY() || m_y==this.getY()+this.height){
         return 2;
       }else{
         return 0;
       }
       
     }
+    public void arranger_deplacement(Anim a){
+      if(this.mandalo_bordure(a)==1){
+        a.oppose_dpX();
+      }
+      if(this.mandalo_bordure(a)==2){
+        a.oppose_dpY();
+      }
+    }
     public void deplacer_tous(){
       for(int i=0;i<la.size();i++){
             la.elementAt(i).deplacer();
+          arranger_deplacement(la.elementAt(i));
           la.elementAt(i).mangability(this.ls,this.la);
           
       }
