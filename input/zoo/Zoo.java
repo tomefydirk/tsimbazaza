@@ -5,6 +5,7 @@ import vivant.*;
 import java.util.Vector;
 import aff.Dessin;
 import java.awt.*;
+import java.beans.AppletInitializer;
 public class Zoo extends Rectangle{
     Secteur[] ls;
     Vector<Anim> la;
@@ -16,6 +17,18 @@ public class Zoo extends Rectangle{
       
     }
     //}
+    public int mandalo_bordure(Anim a){
+      int m_x=(int)a.get_position().getX();
+      int m_y=(int)a.get_position().getY();
+      if(m_x==this.getX()){
+        return 1;
+      }else if(m_y==this.getY()){
+        return 2;
+      }else{
+        return 0;
+      }
+      
+    }
     public void deplacer_tous(){
       for(int i=0;i<la.size();i++){
             la.elementAt(i).deplacer();

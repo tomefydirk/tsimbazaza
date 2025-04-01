@@ -25,7 +25,7 @@ public class Mafenetre extends JFrame{
         
             deplacerButton.addActionListener( _-> {
                 dessiner_boucle();
-     });
+      });
    
         add(d,BorderLayout.CENTER);
         add(deplacerButton,BorderLayout.SOUTH);

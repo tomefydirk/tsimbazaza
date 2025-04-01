@@ -7,6 +7,7 @@ import vivant.*;
 public class Dessin extends JPanel
 {
 	Zoo zoo;
+	
 	//impl --->#[constructor]{
 	public Dessin(Zoo zoo){
 		super();
@@ -24,8 +25,10 @@ public class Dessin extends JPanel
 		}
 	}
 	public void afficher_anim(Graphics g){
-		g.setColor(Color.white);
-		g.fillRect(zoo.x * 10, zoo.y * 10, zoo.width*10, zoo.height*10);
+		g.setColor(new Color(255, 215, 215,200));
+		g.setColor(Color.black);
+		g.drawRect(zoo.x * 10, zoo.y * 10, zoo.width * 10, zoo.height * 10);
+	
 		afficher_sec(g);
 		for(Anim a : zoo.get_la()){
 				if(a!=null && a.get_poid()>0){

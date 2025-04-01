@@ -22,7 +22,7 @@ public class Data {
         animaux.add(lion);
         
         // Création du zoo
-        Zoo zoo = new Zoo(secteurs, animaux, 0, 0, 300, 300);
+        Zoo zoo = new Zoo(secteurs, animaux, 1, 1, 10, 10);
 
         // Affichage de l'état initial
         System.out.println("État initial du zoo :");
