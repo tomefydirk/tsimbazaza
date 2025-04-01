@@ -1,7 +1,9 @@
 package main;
+import aff.ZooGui;
+import data.*;
 public class Main {
     public static void main(String[] args) throws Exception{
-       // Data d=new Data();
-           //  MaFenetre f=new MaFenetre();
+
+        ZooGui f=new ZooGui(Data.get_zoo());
     }    
 }

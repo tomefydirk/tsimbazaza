@@ -6,8 +6,7 @@ import java.awt.geom.Rectangle2D;
 import java.util.Vector;
 import geo.*;
 public class Data {
-      Zoo mon_zoo;
-      public  static Zoo Data(){
+      public  static Zoo get_zoo(){
             Carni c1=new Carni("Balou", 1000, 1000, new Point(1, 1), 0);
             c1.set_dp(new Point(10, 0)); 
             Carni c2=new Carni("Hasman", 8.0, 1, new Point(10, 1), 40);
@@ -82,15 +81,5 @@ public class Data {
            return tsimbina;
       
         }   
-        //impl --->#[get_field]{
-        public Zoo get_zoo(){
-          return this.mon_zoo;
-        }
-        //}
-
-        //impl --->#[mut_field]{
-        public void set_zoo(Zoo a){
-          this.mon_zoo=a;
-        }
-        //}
+       
 }

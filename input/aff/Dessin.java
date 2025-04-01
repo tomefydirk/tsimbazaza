@@ -48,7 +48,7 @@ public class Dessin extends JPanel
 		super.paint(g);
 		
 		afficher_anim(g);
-		
+		repaint();
 	}
     
 }

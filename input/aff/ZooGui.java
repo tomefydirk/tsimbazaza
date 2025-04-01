@@ -3,11 +3,12 @@ package aff;
 import java.awt.BorderLayout;
 
 import javax.swing.*;
+
+import data.Data;
 import zoo.*;
 public class ZooGui extends JFrame{
     Zoo zoo;
-    Dessin Cpanel;
-    
+    Dessin d;
     public ZooGui(Zoo zoo) {
         this.zoo=zoo;
         setTitle("piment cafe");
@@ -16,7 +17,13 @@ public class ZooGui extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        Dessin d=new Dessin(zoo);
+        d=new Dessin(Data.get_zoo());
+        add(d);
+        setVisible(true);
+        JButton deplacerButton=new JButton("Déplacer les animaux");
+       
+        add(d,BorderLayout.CENTER);
+        add(deplacerButton,BorderLayout.SOUTH);
     }
     
 }
