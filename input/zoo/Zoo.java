@@ -9,6 +9,7 @@ import java.beans.AppletInitializer;
 public class Zoo extends Rectangle{
     Secteur[] ls;
     Vector<Anim> la;
+    int echelle;
     //impl --->#[constructor]{
     public Zoo(Secteur[] ls,Vector<Anim> la,int x,int y,int width ,int height){
       super(x,y,width,height);
@@ -20,14 +21,15 @@ public class Zoo extends Rectangle{
     public int mandalo_bordure(Anim a){
       int m_x=(int)a.get_position().getX();
       int m_y=(int)a.get_position().getY();
-      if((m_x==this.getX() || m_x==this.getX() + this.width) && (m_y==this.getY() || m_y==this.getY() +this.height)){
-        System.out.println("oui");
+      int tavy=a.get_intensite() / this.echelle;
+      System.out.println("dans ma fenetre :" +tavy);
+      if((m_x==this.getX() || m_x +tavy== this.getX() + (this.width) ) && (m_y==this.getY() || m_y +tavy==this.getY() +(this.height))){
         return 3;
        
-      }else if(m_x==this.getX() || m_x==this.getX() + this.width){
+      }else if(m_x==this.getX() || m_x  +tavy== this.getX() +(this.width)){
         return 1;
 
-      }else if(m_y==this.getY() || m_y==this.getY() + this.height){
+      }else if(m_y==this.getY() || m_y  +tavy==this.getY() + (this.height)){
       
         return 2;
       }else {
@@ -79,6 +81,9 @@ public class Zoo extends Rectangle{
     }
     public void set_la(Vector<Anim> la){
       this.la=la;
+    }
+    public void set_echelle(int echelle){
+      this.echelle=echelle;
     }
   
     //}
