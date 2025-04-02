@@ -47,6 +47,7 @@ public class Anim{
         if(s instanceof SecteurPark){
             SecteurPark sp=(SecteurPark) s;
             if(sp.get_vertete()>0){
+                sp.iter_vertete(-1);
                 h.manger(); 
             }else{
                 return;
@@ -109,10 +110,10 @@ public class Anim{
         public Date get_dns(){
            return this.dns;
         }
-        public Double get_poid(){
+        public double get_poid(){
             return this.poid;
         }
-        public Double get_poid_max(){
+        public double get_poid_max(){
             return this.poid_max;
         }
         public Point get_position(){

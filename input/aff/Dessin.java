@@ -53,7 +53,9 @@ public class Dessin extends JPanel
 				int x=(int) a.get_position().getX() *10;
 				int y=(int) a.get_position().getY() *10;
 
-				g.fillOval(x+this.marg_x, y+this.marg_y, 10, 10);
+				int gr=(int) a.get_poid();
+
+				g.fillOval(x + this.marg_x  , y+this.marg_y, 10 + gr, 10 + gr);
 				g.setColor(new Color(0,0,0));
 				g.drawString(a.get_nom(), x + this.marg_x,  y + this.marg_y);
 		}

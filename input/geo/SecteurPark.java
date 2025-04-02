@@ -19,6 +19,9 @@ public class SecteurPark extends Secteur{
     public void set_vertete(int vertete){
         this.vertete=vertete;
     }
+    public void iter_vertete(int interator){
+        this.vertete=this.vertete+interator;
+    }
     // }
 
     //impl --->#[inserable]{
