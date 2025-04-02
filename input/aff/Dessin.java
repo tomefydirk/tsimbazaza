@@ -22,13 +22,19 @@ public class Dessin extends JPanel
 	public void afficher_sec(Graphics g){
 		for(int i=0;zoo.get_ls()[i]!=null;i++){
 			Secteur a=zoo.get_ls()[i];
-	
-			  double vertete=( ((SecteurPark)a).get_vertete() * (255) ) /100;
-			  if(((SecteurPark)a).get_vertete()<10){
-				vertete=25;
+			  double vertete_sec = ((SecteurPark)a).get_vertete();
+			  double vertete_color=(  vertete_sec * (255) ) /100;
+			  if(vertete_color<10 && vertete_sec>0.001){
+				vertete_color=25;
 			  }
-			  g.setColor(new Color(0 , 255 ,0,(int) vertete ));
-			  g.fillRect(this.marg_x+(int)(a.x * 10), this.marg_y+(int) (a.y *10),(int)(a.width *10), (int)(a.height *10));
+			  if((int)vertete_sec!=0){
+				g.setColor(new Color(0 , 255 ,0,(int) vertete_color ));
+
+			  }else{
+				g.setColor(new Color(255 , 255 ,0,(int) vertete_color +30));
+
+			  }
+			  			  g.fillRect(this.marg_x+(int)(a.x * 10), this.marg_y+(int) (a.y *10),(int)(a.width *10), (int)(a.height *10));
 			  
 			   
 			
