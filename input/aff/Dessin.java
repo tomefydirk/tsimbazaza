@@ -61,7 +61,7 @@ public class Dessin extends JPanel
 
 				int gr=(int) a.get_poid();
 
-				g.fillOval(x + this.marg_x  , y+this.marg_y, 10 + gr, 10 + gr);
+				g.fillOval(x + this.marg_x  , y+this.marg_y ,  (gr+10)/2,  (gr+10)/2);
 				g.setColor(new Color(0,0,0));
 				g.drawString(a.get_nom(), x + this.marg_x,  y + this.marg_y);
 		}

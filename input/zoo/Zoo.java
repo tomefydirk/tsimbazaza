@@ -26,7 +26,9 @@ public class Zoo extends Rectangle{
        
       }else if(m_x==this.getX() || m_x==this.getX() + this.width){
         return 1;
+
       }else if(m_y==this.getY() || m_y==this.getY() + this.height){
+      
         return 2;
       }else {
         return 0;
