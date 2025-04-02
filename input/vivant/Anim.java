@@ -15,6 +15,7 @@ public class Anim{
     Point position;
     Point dp;
     double poid;
+    int intensite_ecran;
     double poid_max;
     boolean est_mort;
 
@@ -128,7 +129,9 @@ public class Anim{
         public boolean get_est_mort(){
             return this.est_mort;
         }
-
+        public int get_intensite(){
+            return this.intensite_ecran;
+        }
     //}
 
     //impl --->#[mut_field]{
@@ -167,6 +170,9 @@ public class Anim{
         }
         public void set_est_mort(boolean est_mort){
                 this.est_mort=est_mort;
+        }
+        public void set_intensite(int intensite_ecran){
+            this.intensite_ecran=intensite_ecran;
         }
 
     //}
