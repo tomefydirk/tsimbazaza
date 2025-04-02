@@ -18,6 +18,7 @@ public class Dessin extends JPanel
 		this.marg_x=marg_x;
 		this.marg_y=marg_y;
 		this.echelle=echelle;
+		zoo.set_echelle(echelle);
 	}
 	//}
 
@@ -64,9 +65,10 @@ public class Dessin extends JPanel
 				int x=(int) a.get_position().getX() * echelle;
 				int y=(int) a.get_position().getY() * echelle;
 
-				int gr=(int) ((a.get_poid())/10) + 10;
+				int gr=(int) ((a.get_poid())/10 ) + 30;
 				Dessin.set_intensite_anim(a, gr);
-				g.fillOval(x  + this.marg_x  , y +this.marg_y  , a.get_intensite() ,a.get_intensite());
+				System.out.println(a.get_intensite());
+				g.fillOval(x  + this.marg_x  , y + this.marg_y  , a.get_intensite() ,a.get_intensite());
 				g.setColor(new Color(0,0,0));
 				g.drawString(a.get_nom(), x  + this.marg_x,  y  + this.marg_y);
 		}
