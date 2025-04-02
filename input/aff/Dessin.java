@@ -8,14 +8,16 @@ public class Dessin extends JPanel
 {
 	int marg_x;
 	int marg_y;
+	int echelle
 	Zoo zoo;
 	
 	//impl --->#[constructor]{
-	public Dessin(Zoo zoo,int marg_x,int marg_y){
+	public Dessin(Zoo zoo,int marg_x,int marg_y,int echelle){
 		super();
 		this.zoo=zoo;
 		this.marg_x=marg_x;
 		this.marg_y=marg_y;
+		this.echelle=echelle;
 	}
 	//}
 
@@ -42,6 +44,9 @@ public class Dessin extends JPanel
 			g.drawString(a.get_nom(),this.marg_x + (int)(a.x * 10) + (int)a.width *5,this.marg_y+ (int)(a.y * 10) + (int)a.height *5);
 		}
 	}
+	public static void set_intensite_anim(Anim a,int gr){
+		a.set_intensite(gr);
+	}
 	public void afficher_anim(Graphics g){
 		g.setColor(new Color(255, 215, 215,200));
 		g.setColor(Color.black);
@@ -59,9 +64,9 @@ public class Dessin extends JPanel
 				int x=(int) a.get_position().getX() *10;
 				int y=(int) a.get_position().getY() *10;
 
-				int gr=(int) a.get_poid();
-
-				g.fillOval(x + this.marg_x  , y+this.marg_y ,  (gr+10)/2,  (gr+10)/2);
+				int gr=((int) a.get_poid() + 10)/2;
+				Dessin.set_intensite_anim(a,gr);
+				g.fillOval(x + this.marg_x  , y+this.marg_y ,a.get_intensite() ,a.get_intensite());
 				g.setColor(new Color(0,0,0));
 				g.drawString(a.get_nom(), x + this.marg_x,  y + this.marg_y);
 		}
