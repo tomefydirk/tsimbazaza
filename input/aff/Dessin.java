@@ -8,7 +8,7 @@ public class Dessin extends JPanel
 {
 	int marg_x;
 	int marg_y;
-	int echelle
+	int echelle;
 	Zoo zoo;
 	
 	//impl --->#[constructor]{
@@ -36,12 +36,12 @@ public class Dessin extends JPanel
 				g.setColor(new Color(255 , 255 ,0,(int) vertete_color +30));
 
 			  }
-			  			  g.fillRect(this.marg_x+(int)(a.x * 10), this.marg_y+(int) (a.y *10),(int)(a.width *10), (int)(a.height *10));
+			  			  g.fillRect(this.marg_x+ (int)(a.x * echelle), this.marg_y+(int) (a.y *echelle),(int)(a.width *echelle), (int)(a.height *echelle));
 			  
 			   
 			
 			g.setColor(Color.black);
-			g.drawString(a.get_nom(),this.marg_x + (int)(a.x * 10) + (int)a.width *5,this.marg_y+ (int)(a.y * 10) + (int)a.height *5);
+			g.drawString(a.get_nom(),this.marg_x + (int)(a.x * echelle) + (int)a.width * (echelle)/2,this.marg_y+ (int)(a.y * echelle) + (int)a.height *(echelle)/2);
 		}
 	}
 	public static void set_intensite_anim(Anim a,int gr){
@@ -50,7 +50,7 @@ public class Dessin extends JPanel
 	public void afficher_anim(Graphics g){
 		g.setColor(new Color(255, 215, 215,200));
 		g.setColor(Color.black);
-		g.drawRect(zoo.x * 10 + this.marg_x, zoo.y * 10 + this.marg_y, zoo.width * 10, zoo.height * 10);
+		g.drawRect(zoo.x * echelle + this.marg_x, zoo.y * echelle + this.marg_y, zoo.width * echelle, zoo.height * echelle);
 	
 		afficher_sec(g);
 		for(Anim a : zoo.get_la()){
@@ -61,14 +61,14 @@ public class Dessin extends JPanel
 						g.setColor(Color.GREEN);
 					}
 				}
-				int x=(int) a.get_position().getX() *10;
-				int y=(int) a.get_position().getY() *10;
+				int x=(int) a.get_position().getX() * echelle;
+				int y=(int) a.get_position().getY() * echelle;
 
-				int gr=((int) a.get_poid() + 10)/2;
-				Dessin.set_intensite_anim(a,gr);
-				g.fillOval(x + this.marg_x  , y+this.marg_y ,a.get_intensite() ,a.get_intensite());
+				int gr=(int) ((a.get_poid())/10) + 10;
+				Dessin.set_intensite_anim(a, gr);
+				g.fillOval(x  + this.marg_x  , y +this.marg_y  , a.get_intensite() ,a.get_intensite());
 				g.setColor(new Color(0,0,0));
-				g.drawString(a.get_nom(), x + this.marg_x,  y + this.marg_y);
+				g.drawString(a.get_nom(), x  + this.marg_x,  y  + this.marg_y);
 		}
 	}
 	public void paint(Graphics gP)

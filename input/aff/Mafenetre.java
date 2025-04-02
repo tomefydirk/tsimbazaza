@@ -9,7 +9,7 @@ public class Mafenetre extends JFrame{
     Zoo zoo;
     Dessin d;
     boolean en_mouvement;
-    public Mafenetre(Zoo zoo,int marg_x,int marg_y) {
+    public Mafenetre(Zoo zoo,int marg_x,int marg_y,int echelle) {
         this.zoo=zoo;
         this.en_mouvement=false;
         setTitle("Zoo simulation");
@@ -18,7 +18,7 @@ public class Mafenetre extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        d=new Dessin(zoo,marg_x,marg_y);
+        d=new Dessin(zoo,marg_x,marg_y,echelle);
         add(d);
         setVisible(true);
         JButton deplacerButton=new JButton("Déplacer / Arréter");
