@@ -12,7 +12,7 @@ public class Data {
         ls[3].setRect(50,50,10,10);
         
         ls[0]= new SecteurPark("Savane",100);
-        ls[0].setRect(0,0,10,10);
+        ls[0].setRect(1,1,10,10);
 
         ls[1]= new SecteurPark("Jungle",2);
         ls[1].setRect(10,10,20,20);
@@ -26,6 +26,10 @@ public class Data {
         Vector<Anim> la = new Vector<>();
         Herbi h1 = new Herbi("h1", 30, 50, new Point(10, 10), 2);
         h1.set_dp(new Point(1,0));
+
+        Herbi h2 = new Herbi("h2",89,98,new Point(9,9),9);
+        h2.set_dp(new Point(-1,-1));
+
         Carni c1 = new Carni("c1", 80, 120, new Point(20, 20), 5);
         c1.set_dp(new Point(0,1));
         
@@ -34,6 +38,7 @@ public class Data {
         la.add(h1);
         la.add(c1);
         la.add(c2);
+        la.add(h2);
         
         // Création du zoo
         Zoo zoo = new Zoo(ls, la, 0, 0, 100,50);
