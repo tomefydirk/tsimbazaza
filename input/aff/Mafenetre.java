@@ -20,23 +20,34 @@ public class Mafenetre extends JFrame{
       
     }
     public Mafenetre(Zoo zoo,int marg_x,int marg_y,int echelle) {
+        // field {
         this.zoo=zoo;
         this.en_mouvement=false;
+        // }
+        
+        // blabla{
         setTitle("Zoo simulation");
 		setSize(1000,1000);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
+        // }
 
+        // Dessin {
         d=new Dessin(zoo,marg_x,marg_y,echelle);
         add(d);
         setVisible(true);
+        // }
+
+        // bouton panel {
         BoutonBoucle deplacerButton_boucle = new BoutonBoucle(this);
         BoutonDep deplButton = new BoutonDep(this);
         Vector<JButton>  LB = new Vector<JButton>(); 
         LB.add(deplacerButton_boucle);
         LB.add(deplButton);
         init_bouton_panel(LB);
+
+        // }
     }
     public void dessiner_boucle(){
         if(en_mouvement){

@@ -22,7 +22,7 @@ public class Zoo extends Rectangle{
       int m_x=(int)a.get_position().getX();
       int m_y=(int)a.get_position().getY();
       int tavy=a.get_intensite() / this.echelle;
-      System.out.println("dans ma fenetre :" +tavy);
+
       if((m_x==this.getX() || m_x +tavy== this.getX() + (this.width) ) && (m_y==this.getY() || m_y +tavy==this.getY() +(this.height))){
         return 3;
        

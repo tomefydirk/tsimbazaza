@@ -76,14 +76,15 @@ public class Dessin extends JPanel
 					}
 				}
 				
-
+				// intensite sur l'ecran en fonction du poid {
 				int gr=(int) ((a.get_poid())/10 ) + 30;
-				
+				//}
+
 				Dessin.set_intensite_anim(a, gr);
 				int x=(int) a.get_position().getX() ;
 				int y=(int) a.get_position().getY() ;
 
-				System.out.println(a.get_intensite());
+				
 				
 				fillOval_ajst(g, x, y, a.get_intensite()/echelle, a.get_intensite()/echelle);
 				g.setColor(new Color(0,0,0));
