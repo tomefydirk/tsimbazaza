@@ -7,6 +7,10 @@ public class SecteurPark extends Secteur{
         super(nom);
         this.vertete=vertete;
     }
+    public SecteurPark(String nom,int vertete,int x,int y,int width,int height){
+        super(nom, x, y, width, height);
+        this.vertete=vertete;
+    }
     // }
 
     //impl --->#[get_field]{

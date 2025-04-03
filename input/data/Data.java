@@ -7,9 +7,9 @@ import geo.*;
 public class Data {
       public  static Zoo get_zoo(){
         // Création des secteurs
+        Secteur s1=(new SecteurPark("moyene",11)).setRect(50,50,10,10);
         Secteur[] ls = new Secteur[6];
-        ls[3] =new SecteurPark("moyene",11);
-        ls[3].setRect(50,50,10,10);
+        ls[3] =s1;
         
         ls[0]= new SecteurPark("Savane",100);
         ls[0].setRect(1,1,10,10);
@@ -24,7 +24,7 @@ public class Data {
         ls[4].setRect(70,20,20,20);
         // Création des animaux
         Vector<Anim> la = new Vector<>();
-        Herbi h1 = new Herbi("h1", 3, 5, new Point(10, 10), 2);
+        Herbi h1 = new Herbi("h1", 90, 50, new Point(10, 10), 2);
         h1.set_dp(new Point(1,0));
 
         Herbi h2 = new Herbi("h2",9,9,new Point(9,9),9);
