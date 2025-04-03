@@ -1,6 +1,7 @@
 package aff;
 
 import java.awt.BorderLayout;
+import java.util.Vector;
 
 import javax.swing.*;
 
@@ -9,6 +10,15 @@ public class Mafenetre extends JFrame{
     Zoo zoo;
     Dessin d;
     boolean en_mouvement;
+    public void init_bouton_panel(Vector<JButton> j1){
+        JPanel bouton_panel = new JPanel();
+        for(int i=0;i<j1.size();i++){
+            bouton_panel.add(j1.elementAt(i));
+        }
+          add(d,BorderLayout.CENTER);
+          add(bouton_panel,BorderLayout.SOUTH);
+      
+    }
     public Mafenetre(Zoo zoo,int marg_x,int marg_y,int echelle) {
         this.zoo=zoo;
         this.en_mouvement=false;
@@ -21,14 +31,12 @@ public class Mafenetre extends JFrame{
         d=new Dessin(zoo,marg_x,marg_y,echelle);
         add(d);
         setVisible(true);
-        JButton deplacerButton=new JButton("Déplacer / Arréter");
-        
-            deplacerButton.addActionListener( _-> {
-                dessiner_boucle();
-      });
-   
-        add(d,BorderLayout.CENTER);
-        add(deplacerButton,BorderLayout.SOUTH);
+        BoutonBoucle deplacerButton_boucle = new BoutonBoucle(this);
+        BoutonDep deplButton = new BoutonDep(this);
+        Vector<JButton>  LB = new Vector<JButton>(); 
+        LB.add(deplacerButton_boucle);
+        LB.add(deplButton);
+        init_bouton_panel(LB);
     }
     public void dessiner_boucle(){
         if(en_mouvement){
@@ -38,7 +46,7 @@ public class Mafenetre extends JFrame{
             en_mouvement=true;
             new Thread(()->{
                 while(this.en_mouvement){
-                dessiner();
+                dessiner_1();
                 try{
                     Thread.sleep(100);
                 }catch(InterruptedException e){
@@ -49,7 +57,7 @@ public class Mafenetre extends JFrame{
      
       
     }
-    public void dessiner(){
+    public void dessiner_1(){
             if(en_mouvement){
                 zoo.deplacer_tous();
             }
@@ -58,5 +66,8 @@ public class Mafenetre extends JFrame{
             zoo.afficher_la();
            
     }
-    
+    public void dessiner_2(){
+        zoo.deplacer_tous();
+        d.repaint();
+    } 
 }

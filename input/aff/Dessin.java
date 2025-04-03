@@ -21,7 +21,21 @@ public class Dessin extends JPanel
 		zoo.set_echelle(echelle);
 	}
 	//}
-
+	//impl --->[reajust]{
+		public void drawRect_ajst(Graphics g,int x, int y,int width ,int height){
+			g.drawRect(x*this.echelle+this.marg_x, y*this.echelle+this.marg_y, width*this.echelle, height*this.echelle);
+		}
+		public void fillRect_ajst(Graphics g,int x, int y,int width ,int height){
+			g.fillRect(x*this.echelle+this.marg_x, y*this.echelle+this.marg_y, width*this.echelle, height*this.echelle);
+		}
+		public void fillOval_ajst(Graphics g,int x, int y,int width ,int height){
+			g.fillOval(x*this.echelle+this.marg_x, y*this.echelle+this.marg_y, width*this.echelle, height*this.echelle);
+		}
+		public void drawString_ajst(Graphics g,String nom,int x ,int y){
+			g.drawString(nom,x*this.echelle+this.marg_x,y*this.echelle+this.marg_y);
+		}
+	
+	//}
 	public void afficher_sec(Graphics g){
 		for(int i=0;zoo.get_ls()[i]!=null;i++){
 			Secteur a=zoo.get_ls()[i];
@@ -37,8 +51,7 @@ public class Dessin extends JPanel
 				g.setColor(new Color(255 , 255 ,0,(int) vertete_color +30));
 
 			  }
-			  			  g.fillRect(this.marg_x+ (int)(a.x * echelle), this.marg_y+(int) (a.y *echelle),(int)(a.width *echelle), (int)(a.height *echelle));
-			  
+			  			  fillRect_ajst(g,(int) a.x, (int) a.y,(int) a.width,(int) a.height)	;		  
 			   
 			
 			g.setColor(Color.black);
@@ -51,8 +64,8 @@ public class Dessin extends JPanel
 	public void afficher_anim(Graphics g){
 		g.setColor(new Color(255, 215, 215,200));
 		g.setColor(Color.black);
-		g.drawRect(zoo.x * echelle + this.marg_x, zoo.y * echelle + this.marg_y, zoo.width * echelle, zoo.height * echelle);
-	
+		
+		drawRect_ajst(g, zoo.x, zoo.y,zoo.width ,zoo.height);
 		afficher_sec(g);
 		for(Anim a : zoo.get_la()){
 				if(a!=null && a.get_poid()>0){
@@ -62,15 +75,20 @@ public class Dessin extends JPanel
 						g.setColor(Color.GREEN);
 					}
 				}
-				int x=(int) a.get_position().getX() * echelle;
-				int y=(int) a.get_position().getY() * echelle;
+				
 
 				int gr=(int) ((a.get_poid())/10 ) + 30;
+				
 				Dessin.set_intensite_anim(a, gr);
+				int x=(int) a.get_position().getX() ;
+				int y=(int) a.get_position().getY() ;
+
 				System.out.println(a.get_intensite());
-				g.fillOval(x  + this.marg_x  , y + this.marg_y  , a.get_intensite() ,a.get_intensite());
+				
+				fillOval_ajst(g, x, y, a.get_intensite()/echelle, a.get_intensite()/echelle);
 				g.setColor(new Color(0,0,0));
-				g.drawString(a.get_nom(), x  + this.marg_x,  y  + this.marg_y);
+				drawString_ajst(g, a.get_nom(),x, y);
+				
 		}
 	}
 	public void paint(Graphics gP)
