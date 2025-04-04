@@ -58,6 +58,10 @@ public class Dessin extends JPanel
 			g.drawString(a.get_nom(),this.marg_x + (int)(a.x * echelle) + (int)a.width * (echelle)/2,this.marg_y+ (int)(a.y * echelle) + (int)a.height *(echelle)/2);
 		}
 	}
+	public void afficher_Isolement(Graphics g){
+		g.setColor(new Color(255,0,0,90));
+		fillRect_ajst(g,(int)this.zoo.get_SI().getX(),(int) this.zoo.get_SI().getY(),(int) this.zoo.get_SI().getWidth(),(int) this.zoo.get_SI().getHeight());
+	}
 	public static void set_intensite_anim(Anim a,int gr){
 		a.set_intensite(gr);
 	}
@@ -66,6 +70,7 @@ public class Dessin extends JPanel
 		g.setColor(Color.black);
 		
 		drawRect_ajst(g, zoo.x, zoo.y,zoo.width ,zoo.height);
+		afficher_Isolement(g);
 		afficher_sec(g);
 		for(Anim a : zoo.get_la()){
 				if(a!=null && a.get_poid()>0){

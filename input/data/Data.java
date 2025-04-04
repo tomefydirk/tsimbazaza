@@ -15,7 +15,7 @@ public class Data {
        
         new SecteurPark("Jungle",99,10,10,20,20).insert_into(ls);
      
-        new SecteurPark("Zone morte",0,30,20,30,30).insert_into(ls);
+      
         
         new SecteurPark("talatamaty",64,70,20,20,20).insert_into(ls);;
        
@@ -36,23 +36,30 @@ public class Data {
         h5.set_dp(new Point(-1,1));
 
 
-        Carni c1 = new Carni("c1", 80, 120, new Point(20, 20), 5);
+        Carni c1 = new Carni("alika", 80, 120, new Point(20, 20), 5);
         c1.set_dp(new Point(0,1));
         
-        Carni c2=new Carni("c2",10,33,new Point(23,26),10);
+        Carni c2=new Carni("alika",10,33,new Point(23,26),10);
         c2.set_dp(new Point(-1,1));
 
-        Carni c3=new Carni("c3",10,43,new Point(12,24),10);
+        Carni c3=new Carni("alika",10,43,new Point(12,24),10);
         c3.set_dp(new Point(1,-1));
 
-        Carni c4=new Carni("c4",10,43,new Point(89,26),10);
-        c4.set_dp(new Point(-1,-1));
+        Carni c4=new Carni("alika",9,43,new Point(12,24),10);
+        c4.set_dp(new Point(1,-1));
+
+        Carni c5=new Carni("Lion",10,43,new Point(89,26),10);
+        c5.set_dp(new Point(-1,-1));
+        
         la.add(h1);
         la.add(c1);
         la.add(c2);
         la.add(h2);
-        
-        Zoo zoo = new Zoo(ls, la, 0, 0, 100,50);
+        la.add(c5);
+        la.add(c3);
+        la.add(c4);
+        Zoo zoo = new Zoo(ls, la, 1, 1, 100,50);
+        zoo.init_isolement(new Isolement(30,20,30,30,10));
       
         System.out.println("État initial du zoo :");
         zoo.afficher_la();

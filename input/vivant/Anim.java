@@ -57,23 +57,27 @@ public class Anim{
             return;
         }
     }
-    public void faire_manger_carni(Vector<Anim> la){
+    public void faire_manger_carni(Vector<Anim> la,Isolement SI){
         Carni c=(Carni) this;
         Anim proix=c.plus_mangeable(la);
         if(proix!=null){
             c.manger(proix);
+            if(proix.get_nom().equalsIgnoreCase(c.get_nom())){
+                Zoo.envoyer_isolement(c, SI);
+                c.set_dist_fatal(-1);
+            }
             proix.est_mort=true;
         }else{
             return;
         }
     }
-    public void mangability(Secteur[] ls,Vector<Anim> la){
+    public void mangability(Secteur[] ls,Vector<Anim> la,Isolement SI){
         for(int i=0;ls[i]!=null;i++){
             if(this.est_dans(ls[i]) && !this.est_mort){
                 if(this instanceof Herbi){
                    faire_manger_herbi(ls[i]);
                 }else if(this instanceof Carni){
-                    faire_manger_carni(la);
+                    faire_manger_carni(la,SI);
                 }else{
                     continue;
                 }          

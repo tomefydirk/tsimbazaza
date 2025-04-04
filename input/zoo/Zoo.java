@@ -1,6 +1,7 @@
 package zoo;
 
 import geo.*;
+import geo.Point;
 import vivant.*;
 import java.util.Vector;
 import aff.Dessin;
@@ -8,6 +9,7 @@ import java.awt.*;
 import java.beans.AppletInitializer;
 public class Zoo extends Rectangle{
     Secteur[] ls;
+    Isolement SI;
     Vector<Anim> la;
     int echelle;
     //impl --->#[constructor]{
@@ -16,6 +18,15 @@ public class Zoo extends Rectangle{
       this.ls=ls;
       this.la=la;
       
+    }
+    public void init_isolement(Isolement SI){
+      this.SI=SI;
+    }
+    public static void envoyer_isolement(Anim a,Isolement SI){
+        a.set_position(new Point(SI.x+1, SI.y+1));
+        a.set_dp(new Point(0, 0));
+       
+        
     }
     //}
     public int mandalo_bordure(Anim a){
@@ -52,10 +63,10 @@ public class Zoo extends Rectangle{
         }
     public void deplacer_tous(){
       for(int i=0;i<la.size();i++){
-      
           la.elementAt(i).deplacer();
           arranger_deplacement(la.elementAt(i));
-          la.elementAt(i).mangability(this.ls,this.la);
+          this.SI.arranger_deplacement(la.elementAt(i));
+          la.elementAt(i).mangability(this.ls,this.la,this.SI);
           
       }
       for(int i=0;i<la.size();i++){
@@ -72,6 +83,9 @@ public class Zoo extends Rectangle{
       }
       public Vector<Anim> get_la(){
         return this.la;
+      }
+      public Isolement get_SI(){
+        return this.SI;
       }
     //} 
 
